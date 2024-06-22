@@ -1,6 +1,6 @@
-## clean-architecture-with-react-boilerplate
+# clean-architecture-with-react-boilerplate
 
-### Step 1. 설치
+### 설치
 ```
 npm create vite@latest
 npm install -D prettier eslint-plugin-prettier
@@ -28,3 +28,13 @@ npm install -D prettier eslint-plugin-prettier
 
 ![DDD.svg](..%2F..%2Fgithub%2FDDD.svg)
 
+## Use Case
+- 회원가입
+  - 사용자는 `nickname`, `id`, `password`를 입력해 회원가입을 요청할 수 있다.
+  - 회원가입이 성공적으로 진행되면 사용자는 로그인되며 main 페이지로 이동된다.
+
+- 로그인
+  - 사용자는 로그인을 위해 id, `password`를 입력해 로그인을 요청할 수 있다.
+  - `id`, `password`가 일치하지 않으면 로그인에 실패한다.
+    - form 하단에 '아이디나 비밀번호가 일치하지 않습니다.' 에러 문구를 보여준다.
+  - `id`, `password`가 일치하면 사용자는 로그인되며 main 페이지로 이동된다.
