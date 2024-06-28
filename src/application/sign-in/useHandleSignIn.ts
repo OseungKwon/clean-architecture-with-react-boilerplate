@@ -1,22 +1,17 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
+import { useSignIn } from '../mutations/useSignIn.ts';
 
 function useHandleSignIn() {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const { mutate: signIn } = useSignIn();
 
-    const onChangeEmail = useCallback((value: string) => {
-        setEmail(value);
-    }, []);
+    const onSingIn = useCallback(
+        ({ nickname, email, password }: { nickname: string; email: string; password: string }) => {
+            signIn({ nickname, email, password });
+        },
+        [signIn],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        setPassword(value);
-    }, []);
-
-    const onSingIn = useCallback(() => {
-        // TODO
-    }, []);
-
-    return { email, onChangeEmail, password, onChangePassword, onSingIn };
+    return { onSingIn };
 }
 
 export default useHandleSignIn;
